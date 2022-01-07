@@ -6,47 +6,23 @@
 //
 
 import UIKit
-// import JGProgressHUD
 
-extension UIViewController {
-    // static let hud = JGProgressHUD(style: .dark)
-
-    func configureGradientLayer() {
-        let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemPurple.cgColor, UIColor.systemBlue.cgColor]
-        gradient.locations = [0, 1]
-        view.layer.addSublayer(gradient)
-        gradient.frame = view.frame
-    }
-
-//    func showLoader(_ show: Bool) {
-//        view.endEditing(true)
-//
-//        if show {
-//            UIViewController.hud.show(in: view)
-//        } else {
-//            UIViewController.hud.dismiss()
-//        }
-//    }
-//
-//    func showMessage(withTitle title: String, message: String) {
-//        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-//        present(alert, animated: true, completion: nil)
-//    }
-}
-
-
-// 8
 extension UIButton {
-    func attributedTitle(firstPart: String, secondPart: String) {
-        let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.systemFont(ofSize: 16)]
-        let attributedTitle = NSMutableAttributedString(string: "\(firstPart) ", attributes: atts)
+    func setAutenticationButton(title: String, color: UIColor) {
+        setTitle(title,for: .normal)
+        setTitleColor(.white , for: .normal)
+        backgroundColor = color
+        layer.cornerRadius = 12
+        layer.masksToBounds = true
+        titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         
-        let boldAtts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.87), .font: UIFont.boldSystemFont(ofSize: 16)]
-        attributedTitle.append(NSAttributedString(string: secondPart, attributes: boldAtts))
-        
-        setAttributedTitle(attributedTitle, for: .normal)
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 7
+        layer.borderColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        layer.borderWidth = 1.0
+        layer.cornerRadius = 7
     }
 }
 
